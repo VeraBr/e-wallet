@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import Cards from './pages/Cards';
+import AddCard from './pages/AddCard';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getUsers } from './components/cardListSlice';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>E-WALLET</h1>
       </header>
+
+      <Routes>
+        <Route path="/" element={<Cards />} />
+        <Route path="/addcard" element={<AddCard />} />
+      </Routes>
     </div>
   );
 }
