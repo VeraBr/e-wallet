@@ -74,9 +74,7 @@
 
 
 .inactiveCardsContainer {
-  /* margin-top: 70px; */
   position: relative;
-  /* height: 350px; */
   height: auto;
 }
 
@@ -98,14 +96,9 @@
 }
 
 .inactiveCardsContainer:hover > .icard {
+  position: relative;
   margin-top: 0px;
 }
-
-
-/* .icard {
-  transition: 3s ease-in-out;
-} */
-
 
 .btn {
   display: none;
@@ -184,7 +177,6 @@
 
 .visa {
   background: linear-gradient(180deg, rgb(38, 53, 188) 0%, rgb(5, 14, 104) 55%);
-  /* background: rgb(8,20,148); */
   color: rgb(163, 163, 163);
   text-shadow: 1px 1px rgb(84, 82, 82);
 }
@@ -192,7 +184,6 @@
 .klarna {
   background: rgb(251,180,196);
   color: black;
-  /* text-shadow: 1px 1px rgb(77, 77, 77); */
 }
 
 
