@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import ActiveCard from "../components/ActiveCard"
 import InactiveCards from "../components/InactiveCards"
 import NewCardButton from "../components/NewCardButton"
@@ -12,8 +11,6 @@ const Cards = () => {
       <ActiveCard />
       <NewCardButton />
       <InactiveCards />
-      
-
     </div>
   )
 }

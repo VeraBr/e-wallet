@@ -24,17 +24,17 @@ const NewCard = () => {
       ...input, [e.target.id]: e.target.value
     };
     setInput(nextCard)
-    // console.log(nextCard)
   }
+
 
   const handleNewcard = (e) => {
     e.preventDefault();
     let cardNumber = document.querySelector("#cardNumber").value;
-    // let cardHolder = cards[0].cardHolder;
     let month = document.querySelector("#month").value;
     let year = document.querySelector("#year").value;
     let ccv = document.querySelector("#ccv").value;
     let vendor = document.querySelector("#vendor").value;
+
 
     if (cards.length <= 3 && cardNumber.length === 16 && month.length === 2 && year.length === 2 && ccv.length === 3) {
         dispatch(addNewCard({
@@ -48,9 +48,7 @@ const NewCard = () => {
         id: latestId + 1
       })) 
       navigate("/");
-      console.log(cardNumber.length)
     } else {
-      console.log("max")
       alert("You have too many cards!")
       navigate("/")
     }
@@ -82,8 +80,8 @@ const NewCard = () => {
         <label htmlFor="ccv">CCV</label>
         <input type="text" id="ccv" minLength="3" maxLength="3" required/>
 
-        <select name="vendor" id="vendor" defaultValue={'DEFAULT'} onChange={handleCardUpdate} required>
-          <option value="DEFAULT" disabled>Choose vendor</option>
+        <select name="vendor" id="vendor" onChange={handleCardUpdate} required>
+          <option value="" selected disabled>Choose vendor</option>
           <option value="klarna">Klarna</option>
           <option value="mastercard">Mastercard</option>
           <option value="visa">Visa</option>

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom";
 import { changeActive, deleteCard } from "./cardListSlice";
 
 
@@ -13,20 +12,11 @@ const InactiveCards = () => {
     dispatch(deleteCard(id));
   };
 
-  console.log(cards)
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/addcard")
-  }
-
   return(
-    <>
       <div className="inactiveCardsContainer">
 
         <small>INACTIVE CARDS</small>
-        {cards.map((card, i) => (card.active === false ? (<div className={`card inactiveCard${i} ${card.vendor} icard`} key={i} >
+        {cards.map((card, i) => (!card.active && (<div className={`card inactiveCard${i} ${card.vendor} icard`} key={i} >
           <p className="cardNumber">{card.cardNumber}</p>
           <p className="cardHolder">{card.cardHolder}</p>
           <p className="valid">{card.month}/{card.year}</p>
@@ -35,21 +25,9 @@ const InactiveCards = () => {
             <button className="btn" onClick={() => {dispatch(changeActive(card.id))}}>ACTIVATE</button>
             <button className="btn" onClick={() => {handleDeleteCard(card.id)}}>DELETE</button>
           </div>
-        </div>):null))}
+        </div>)))}
 
-        {/* <div className="addCardBtnDiv">
-          <button onClick={handleClick} className="newCardBtn btnNewCard">ADD A NEW CARD</button>
-        </div> */}
       </div>
-
-      {/* <div className="addCardBtnDiv">
-          <button onClick={handleClick} className="newCardBtn">ADD A NEW CARD</button>
-      </div> */}
-
-      
-
-    </>
-
   )
 }
 
